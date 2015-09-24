@@ -3,9 +3,29 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+	public BoardManager boardScript;
+	public static GameManager instance = null;
+
+	private int level = 3;
+
 	// Use this for initialization
-	void Start () {
-	
+	void Awake () 
+	{
+		if (instance == null) 
+		{
+			instance = this;
+		} 
+		else if (instance != this) 
+		{
+			Destroy(gameObject);
+		}
+		boardScript = GetComponent<BoardManager> ();
+		InitGame ();
+	}
+
+	void InitGame()
+	{
+		boardScript.SetupScene (level);
 	}
 	
 	// Update is called once per frame
