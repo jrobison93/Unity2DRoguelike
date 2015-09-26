@@ -25,6 +25,7 @@ public abstract class MovingObject : MonoBehaviour
 
 		boxCollider.enabled = false;
 		hit = Physics2D.Linecast (start, end, blockingLayer);
+		boxCollider.enabled = true;
 
 		if (hit.transform == null) 
 		{

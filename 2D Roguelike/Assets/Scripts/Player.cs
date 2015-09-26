@@ -54,6 +54,11 @@ public class Player : MovingObject {
 
 		RaycastHit2D hit;
 
+		if(Move(xDir, yDir, out hit))
+		{
+
+		}
+
 		CheckIfGameOver ();
 
 		GameManager.instance.playersTurn = false;
